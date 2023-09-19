@@ -3,6 +3,7 @@ import MenuButton from '../Buttons/MenuButton';
 import CartContainer from '../CartContainer/CartContainer';
 import CategoryItem from '../CategoryItem/CategoryItem'
 const NavBar = () => {
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -19,6 +20,7 @@ const NavBar = () => {
                         <li className="nav-item">
                             <CategoryItem isActive={false} nameCategory="Congelado" />
                         </li>
+
                     </ul>
                     <CartContainer />
                 </div>
