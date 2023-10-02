@@ -27,4 +27,4 @@ const ItemListContainer = ({ greeting, categoria = "ALL" }) => {
     )
 }
 
-export default ItemListContainer;
+export default ItemListContainer; 
