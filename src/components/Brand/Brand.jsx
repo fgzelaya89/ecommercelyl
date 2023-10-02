@@ -1,7 +1,12 @@
+import { NavLink } from "react-router-dom"
+
 const Brand = () => {
     return (
-        <a className="navbar-brand" href="#">LyL</a>
+        <NavLink className="navbar-brand" to="/" >
+            LyL
+        </NavLink>
+
     );
-  };
-  
-  export default Brand;
+};
+
+export default Brand;

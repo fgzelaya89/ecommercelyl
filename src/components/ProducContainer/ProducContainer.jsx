@@ -12,7 +12,7 @@ export default function ProducContainer({ END_POINT }) {
             .then((res) => res.json())
             .then((json) => setproductos(json))
             .finally(() => setIsLoading(false));
-    }, []);
+    }, [END_POINT]);
 
 
     if (isLoading) {

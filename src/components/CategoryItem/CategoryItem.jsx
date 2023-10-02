@@ -1,7 +1,10 @@
-const CategoryItem = ({isActive = false, nameCategory}) => {
+import { NavLink } from 'react-router-dom';
+const CategoryItem = ({ toPath, isActive = false, nameCategory }) => {
     return (
-        <a className={`nav-link ${isActive ? 'active' : null}`} aria-current="page" href="#">{nameCategory}</a>
+        <NavLink to={toPath} className={`nav-link ${isActive ? 'active' : null}`} aria-current="page" href="#">
+            {nameCategory}
+        </NavLink>
     );
-  };
-  
-  export default CategoryItem;
+};
+
+export default CategoryItem;

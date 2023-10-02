@@ -1,16 +1,11 @@
 
 import './App.css'
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-//import MediaCard from './components/MediaCard/MediaCard';
-import NavBar from './components/NavBar/NavBar';
-import ProducContainer from './components/ProducContainer/ProducContainer';
+import Layout from './view/Layout';
+
 
 function App() {
   return (<div>
-    <NavBar />
-    <ItemListContainer greeting="Bienvenidos" />
-    <ProducContainer END_POINT ='https://fakestoreapi.com/products'/>
-
+    <Layout/>
   </div>);
 }
 
