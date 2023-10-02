@@ -14,7 +14,7 @@ export default function MediaCard({ image, title = "TITLE", description = "SinDe
           <h5 className="card-title">{title}</h5>
           <p className="card-text">
             {description}
-            <a href="#" className="btn btn-primary">Ver detalle del producto</a>
+            <a href="#" className="btn btn-secondary">Ver detalle del producto</a>
           </p>
         </div>
 
