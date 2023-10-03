@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 
-export default function MediaCard({ image, title = "TITLE", description = "SinDescription", stock=0 }) {
+export default function MediaCard({ idProducto=0,image, title = "TITLE", description = "SinDescription", stock=0 }) {
   return (
     <div className="col">
       <div className="card" style={{ maxWidth: '345px' }}>
@@ -14,7 +15,7 @@ export default function MediaCard({ image, title = "TITLE", description = "SinDe
           <h5 className="card-title">{title}</h5>
           <p className="card-text">
             {description}
-            <a href="#" className="btn btn-secondary">Ver detalle del producto</a>
+            <Link to={`/item/${idProducto}`} className="btn btn-secondary">Ver detalle del producto</Link>
           </p>
         </div>
 

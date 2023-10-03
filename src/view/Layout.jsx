@@ -1,5 +1,5 @@
 
-import NavBar from "../components/NavBar/NavBarC";
+import NavBar from "../components/NavBar/NavBar";
 const Layout =()=>{
 return(
 

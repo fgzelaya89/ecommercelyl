@@ -1,32 +1,49 @@
+import { NAVBAR_ROUTES_LYL } from '../../routes/routes';
 import Brand from '../Brand/Brand';
+import {  BrowserRouter, Routes, Route } from 'react-router-dom';
 import MenuButton from '../Buttons/MenuButton';
 import CartContainer from '../CartContainer/CartContainer';
 import CategoryItem from '../CategoryItem/CategoryItem'
+
+
+import ItemListContainer from '../ItemListContainer/ItemListContainer';
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 const NavBar = () => {
 
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
-            <div className="container-fluid">
-                <Brand />
-                <MenuButton />
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <CategoryItem isActive={true} nameCategory="Almacen" />
-                        </li>
-                        <li className="nav-item">
-                            <CategoryItem isActive={false} nameCategory="Bebidas" />
-                        </li>
-                        <li className="nav-item">
-                            <CategoryItem isActive={false} nameCategory="Congelado" />
-                        </li>
+        <div>
+            <BrowserRouter>
+                <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                    <div className="container-fluid">
+                        <Brand />
+                        <MenuButton />
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                {NAVBAR_ROUTES_LYL.map((route) => (
+                                    <li className="nav-item" key={route.name}>
+                                        <CategoryItem toPath={route.path} isActive={true} nameCategory={route.name} />
+                                    </li>
+                                ))}
+                            </ul>
+                            <CartContainer />
+                        </div>
+                    </div>
+                </nav>
 
-                    </ul>
-                    <CartContainer />
-                </div>
+                <Routes>
+                    {NAVBAR_ROUTES_LYL.map((route) => (
+                    <Route 
+                        key={route.path}
+                        exact 
+                        path={route.path} 
+                        element={<ItemListContainer greeting="Bienvenidos" categoria={route.filtroProduct}/>} 
+                    />))}
+                    <Route exact path="/item/:idProducto" element={<ItemDetailContainer/>} />
+                    <Route path="*" element={<h1>Not Fout</h1>} />
+                </Routes>
 
-            </div>
-        </nav>
+            </BrowserRouter>
+        </div>
     )
 }
 
