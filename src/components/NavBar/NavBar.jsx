@@ -10,6 +10,7 @@ import { NAVBAR_ROUTES_LYL } from '../../routes/routes';
 import Brand from '../Brand/Brand';
 import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
+import InfoCart from '../../view/cart';
 
 const NavBar = () => {
 
@@ -44,6 +45,7 @@ const NavBar = () => {
                                 element={<ItemListContainer greeting="Bienvenidos" categoria={route.filtroProduct} />}
                             />))}
                         <Route exact path="/item/:idProducto" element={<ItemDetailContainer />} />
+                        <Route exact path="/cart" element={<InfoCart />} />
                         <Route path="*" element={<h1>Not Fout</h1>} />
                     </Routes>
 
