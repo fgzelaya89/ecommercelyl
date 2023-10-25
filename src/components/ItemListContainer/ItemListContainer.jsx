@@ -1,15 +1,19 @@
 
 import MediaCard from "../MediaCard/MediaCard";
-import { smokProducts } from "../../utils/smockServices";
+import { smokProducts} from "../../utils/smockServices";
 import { useEffect, useState } from "react";
-
+import { useContext } from "react"
+import { CartContext } from "../../Context/cartContext";
 
 
 
 
 const ItemListContainer = ({ greeting, categoria = "ALL" }) => {
+    
     //const { products, loading } = useProducts({ limit: 5 });
     const data = smokProducts();
+    const CartInfoContext = useContext(CartContext);
+  
 
     const [productos, setProductos] = useState([]); // Inicializa productos como un arreglo vacío
 
@@ -21,12 +25,15 @@ const ItemListContainer = ({ greeting, categoria = "ALL" }) => {
         setProductos(filteredData);
     }, [categoria]);
 
+
+     
+
     return (
         <div>
             <h1 className="container">{greeting}</h1>
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {productos.map((product) => (
-                    <MediaCard key={product.id} idProducto={product.id} image={product.image} title={product.title} description={product.description} stock={product.stock} />
+                    <MediaCard key={product.id} idProducto={product.id} image={product.image} title={product.title} description={product.description} stock={product.stock - CartInfoContext.cart.filter(obj => obj.id == product.id).length} />
                 ))}
 
             </div>
