@@ -12,6 +12,8 @@ const ItemListContainer = ({ greeting, categoria = "ALL" }) => {
     
     //const { products, loading } = useProducts({ limit: 5 });
     const data = smokProducts();
+   
+
     const CartInfoContext = useContext(CartContext);
   
 
