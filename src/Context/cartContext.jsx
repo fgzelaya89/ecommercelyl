@@ -4,7 +4,9 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
 export const CartContext = createContext();
 
 export function CartProvider({ children }) {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isChekOutOK, setIsChekOutOK] = useState(false);
+    const [idChekOutOK ,setIdChekOutOK] = useState(0);
+
     const [cart, setCart] = useState([]);
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -30,7 +32,7 @@ export function CartProvider({ children }) {
     }, []);
 
     return (
-        <CartContext.Provider value={{ isDarkMode, setIsDarkMode, cart, setCart,items, setItems,loading }}>
+        <CartContext.Provider value={{ isChekOutOK, setIsChekOutOK, cart, setCart,items, setItems,loading,idChekOutOK,setIdChekOutOK }}>
             {children}
         </CartContext.Provider>
     );

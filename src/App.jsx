@@ -6,7 +6,7 @@ import Layout from './view/Layout';
 import { initializeApp } from "firebase/app";
 
 //Practica Context
-import {CartProvider} from '../src/Context/cartContext'
+import { CartProvider } from '../src/Context/cartContext'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -23,9 +23,9 @@ initializeApp(firebaseConfig);
 function App() {
   return (<div>
     <CartProvider>
-    <Layout/>
+      <Layout />
     </CartProvider>
-    
+
   </div>);
 }
 

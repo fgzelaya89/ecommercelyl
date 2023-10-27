@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { useContext } from "react";
+import { CartContext } from '../Context/cartContext';
+import PurchaseSuccessMessage from '../components/PurchaseSuccessMessage/PurchaseSuccessMessage';
+
+
 function Formulario({cart}) {
+  const CartInfoContext = useContext(CartContext);
+
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
@@ -11,6 +18,7 @@ function Formulario({cart}) {
 
   const [errores, setErrores] = useState({});
   const [enviado, setEnviado] = useState(false);
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -47,6 +55,8 @@ function Formulario({cart}) {
       // Aquí puedes agregar tu lógica para enviar los datos
       sendOrder();
       setEnviado(true);
+      CartInfoContext.setCart([]);
+      CartInfoContext.setIsChekOutOK(true);
     } else {
       setErrores(nuevosErrores);
     }
@@ -68,9 +78,15 @@ function Formulario({cart}) {
       total: cart.reduce((total, producto) => total + producto.precioTotal, 0),
     }).then(({ id }) => {
       console.log("Id de venta "+id)
+      CartInfoContext.setIdChekOutOK(id);
     });
   };
 
+  if(enviado){
+    return (<div>
+      <PurchaseSuccessMessage purchaseId={CartInfoContext.idChekOutOK}/>
+    </div>);
+  }
   return (
     <div className="container">
       <div className="row">

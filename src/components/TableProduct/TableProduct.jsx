@@ -8,9 +8,6 @@ const TableProduct = () => {
 
     const CartInfoContext = useContext(CartContext);
     const dataProductoFiltrado = getProductoFiltrado(CartInfoContext.cart);
-
-    console.log(dataProductoFiltrado);
-    //console.log(CartInfoContext.cart)
     return (
         <table className="table">
             <TableHead />
