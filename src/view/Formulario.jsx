@@ -1,6 +1,6 @@
 import { useState } from 'react';
-
-function Formulario() {
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+function Formulario({cart}) {
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
@@ -45,10 +45,30 @@ function Formulario() {
     if (Object.keys(nuevosErrores).length === 0) {
       // Envía los datos del formulario si no hay errores
       // Aquí puedes agregar tu lógica para enviar los datos
+      sendOrder();
       setEnviado(true);
     } else {
       setErrores(nuevosErrores);
     }
+  };
+
+  const sendOrder = () => {
+    const db = getFirestore();
+    console.log(cart);
+    const orderCollection = collection(db, "ordens");
+    addDoc(orderCollection, {
+      ...cart,
+      buyer: {
+        nombre: formData.nombre,
+        apellido: formData.apellido,
+        telefono: formData.telefono,
+        correo: formData.correo,
+      },
+      date: new Date(),
+      total: cart.reduce((total, producto) => total + producto.precioTotal, 0),
+    }).then(({ id }) => {
+      console.log("Id de venta "+id)
+    });
   };
 
   return (
