@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function MediaCard({ idProducto=0,image, title = "TITLE", description = "SinDescription", stock=0 }) {
+
   return (
     <div className="col">
       <div className="card" style={{ maxWidth: '345px' }}>

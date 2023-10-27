@@ -4,40 +4,56 @@ import { useEffect, useState } from "react";
 
 import { useContext } from "react"
 import { CartContext } from "../../Context/cartContext";
+import Spinner from "../Spinner/Spinner";
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
     const CartInfoContext = useContext(CartContext);
-
+    const [loading, setLoading] = useState(true);
     const { idProducto } = useParams();
 
-  
+
     const [contador, setContador] = useState(0);
 
     var auxContador = CartInfoContext.cart.filter(obj => obj.id == idProducto).length;
-    
+
     useEffect(() => {
         setContador(auxContador);
-      }, [idProducto]); // Se ejecutará cuando idProducto cambie
-    
+    }, [idProducto]); // Se ejecutará cuando idProducto cambie
+
 
 
     const [producto, setProducto] = useState({}); // Inicializa producto como un objeto vacío
+  
     useEffect(() => {
-        // Calcula filteredData cuando la categoría cambia
-        const fetchedProduct = getSmockServiceProductId(idProducto);
-        console.log(" contador: "+auxContador);
-        fetchedProduct.stock = fetchedProduct.stock-auxContador;
-        // Actualiza el estado "producto" con el nuevo objeto de producto
-        setProducto(fetchedProduct);
-    }, [idProducto]);
+        //
+        const db = getFirestore();
+        const itemAux = query(
+            collection(db, "items"),
+            where("id", "==", parseInt(idProducto)))
+            ;
+        getDocs(itemAux).then((snapshot) => {
+            if (!snapshot.empty) {
+                console.log(snapshot.docs[0].data());
+                const auxItems = snapshot.docs[0].data();
+                console.log(auxItems);
+                auxItems.stock = auxItems.stock - auxContador;
+                setProducto(auxItems);
+                setLoading(false);
+            }
+        });
+  
+    }, [idProducto]);// Se ejecutará cuando idProducto cambie
 
 
-    
-   
-    
+    console.log(producto);
+
+
 
     // Función para agregar un producto al carrito
     const agregarProducto = (producto) => {
+        console.log("agregarProducto");
+        console.log(producto);
         if (producto.stock > 0) {
             // Crea una copia del producto
             const productoCopia = { ...producto };
@@ -82,6 +98,10 @@ const ItemDetailContainer = () => {
         }
     };
 
+
+    if (loading) {
+        return <div><Spinner /></div>;
+    }
     return (
         <div className="card " style={{ maxWidth: '345px' }}>
             <img src={producto.image} className="card-img-top" style={{ height: '140px' }} alt={producto.title} />
