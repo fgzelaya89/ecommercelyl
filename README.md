@@ -1,31 +1,38 @@
-# Proyecto de Ecommerce "Nombre del Proyecto"
+# L&L E-Commerce
 
-![Logo del Proyecto](URL del Logo o Imagen si lo tienes)
-
-Este proyecto de Ecommerce tiene como objetivo proporcionar una plataforma de compras en línea a nuestros clientes. Nuestra tienda en línea está diseñada para ser intuitiva, fácil de usar y eficiente para permitir a los usuarios navegar y comprar productos de manera sencilla.
+Bienvenido a L&L E-Commerce, tu destino en línea para compras sencillas y satisfactorias. Nuestra tienda en línea está diseñada pensando en la comodidad y la eficiencia de nuestros clientes.
 
 ## Tecnologías Utilizadas
 
-- **React**: Utilizamos React como el marco de desarrollo frontend para crear una experiencia de usuario interactiva y dinámica.
+- **React**: Utilizamos React como el marco de desarrollo frontend para brindarte una experiencia de usuario interactiva y dinámica.
 
-- **React Router Dom**: Usamos React Router Dom para gestionar la navegación dentro de la aplicación y permitir a los usuarios moverse entre diferentes páginas de productos, el carrito de compras y la finalización de la compra.
+- **React Router Dom**: Navega sin problemas entre diferentes secciones de la tienda, desde explorar productos hasta finalizar tus compras, gracias a React Router Dom.
 
-- **Bootstrap 5**: Hemos incorporado Bootstrap 5 para darle a la interfaz de usuario un aspecto atractivo y responsivo.
+- **Bootstrap 5**: La apariencia atractiva y responsiva de nuestra tienda se debe a la incorporación de Bootstrap 5.
 
-- **Firebase**: Utilizamos Firebase para gestionar la autenticación de usuarios y el almacenamiento de datos en tiempo real, lo que nos permite administrar los productos y los pedidos de los clientes de manera eficaz.
+- **Firebase**: Gestionamos la autenticación de usuarios y el almacenamiento de datos en tiempo real con Firebase para brindarte una experiencia de compra eficaz.
 
 ## Desarrollo Iterativo e Incremental
 
-Este proyecto fue gestado a través de un proceso de desarrollo iterativo e incremental. A lo largo del curso en CoderHouse, hemos aplicado los conceptos y las prácticas aprendidas para construir una aplicación de comercio electrónico funcional y satisfacer las necesidades de nuestros clientes.
+Hemos construido este proyecto siguiendo un enfoque de desarrollo iterativo e incremental, aplicando los conocimientos adquiridos durante el curso en CoderHouse. Nuestra meta era satisfacer las necesidades de nuestros clientes y ofrecer una experiencia de compra excepcional.
+
+## Desarrollador
+
+- **Nombre y Apellido**: Fernando Zelaya
+- **Correo Electrónico**: fgzelaya89@gmail.com
+- **LinkedIn**: [Perfil de LinkedIn](https://www.linkedin.com/in/fgzelaya/)
+- **Página Web Personal**: [www.fgzelaya.com.ar](http://www.fgzelaya.com.ar)
+- **Repositorio GitHub**: [GitHub de Fernando Zelaya](https://github.com/fgzelaya89)
+- **Experiencia Laboral**: 3 años como QA Automation y comprometido como desarrollador frontend nivel training.
+
+## Video de Demostración
+
+- **Demostración de Usabilidad**: [Ver Video](https://youtu.be/NULl8pKUZ_k)
 
 ## Agradecimientos
 
-Queremos agradecer a todos los profesores de la cátedra de CoderHouse por su orientación y enseñanzas que nos han ayudado a completar con éxito este proyecto. También, expresamos nuestro agradecimiento a ChatGPT por su colaboración en la creación de este Readme y su apoyo en la resolución de dudas.
+Agradecemos a todos los profesores de la cátedra de CoderHouse por su orientación y enseñanzas, que nos han ayudado a llevar a cabo con éxito este proyecto. También queremos expresar nuestro agradecimiento a ChatGPT por su colaboración en la creación de este Readme y su apoyo en la resolución de dudas.
 
-¡Esperamos que disfruten de su experiencia de compra en nuestra tienda en línea! Siéntase libre de contactarnos si tiene alguna pregunta o comentario.
+¡Esperamos que disfrutes de tu experiencia de compra en L&L E-Commerce! Si tienes alguna pregunta o comentario, no dudes en contactarnos.
 
-[Enlace a la Página de Inicio](URL de la Página de Inicio)
-
----
-
-Nota: Asegúrate de proporcionar el URL del logo del proyecto, el enlace a la página de inicio y cualquier otro detalle específico que desees incluir en tu proyecto.
+[Visita L&L E-Commerce](http://localhost:5173/)
